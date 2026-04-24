@@ -89,5 +89,19 @@ http://127.0.0.1:5000/
 - Form validation (frontend + backend)
 - Connecting Python to MySQL
 
+## Screenshots
+
+### Homepage
+![Homepage](screenshots/homepage.png)
+
+### Add Student Form
+![Add Student](screenshots/add_student.png)
+
+### Form Validation
+![Validation](screenshots/validation.png)
+
+### Search Feature
+![Search](screenshots/search.png)
+
 ## Author
 Satyajit Mirdda — satyajitMCA
