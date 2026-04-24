@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Student</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h2>Edit Student</h2>
+
+    {% if errors %}
+    <div class="error-box">
+        <strong>Please fix the following errors:</strong>
+        <ul>
+            {% for error in errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    <form action="/edit/{{ student[0] }}"
+          method="POST" class="student-form">
+
+        <label>Name: <span class="required">*</span></label>
+        <input type="text" name="name" required
+               value="{{ form_data.get('name', student[1]) }}"
+               placeholder="Enter full name">
+        <small>Letters only, 2-100 characters</small>
+
+        <label>Age: <span class="required">*</span></label>
+        <input type="number" name="age" required
+               value="{{ form_data.get('age', student[2]) }}"
+               min="1" max="120">
+        <small>Must be between 1 and 120</small>
+
+        <label>Email: <span class="required">*</span></label>
+        <input type="email" name="email" required
+               value="{{ form_data.get('email', student[3]) }}"
+               placeholder="example@email.com">
+        <small>Must be a valid unique email address</small>
+
+        <label>Phone:</label>
+        <input type="text" name="phone"
+               value="{{ form_data.get('phone', student[4]) }}"
+               placeholder="10-digit phone number"
+               maxlength="10">
+        <small>Optional — 10 digits only</small>
+
+        <label>Course: <span class="required">*</span></label>
+        <input type="text" name="course" required
+               value="{{ form_data.get('course', student[5]) }}"
+               placeholder="Enter course name">
+        <small>2-100 characters</small>
+
+        <div class="form-buttons">
+            <button type="submit" class="btn btn-add">
+                Update Student
+            </button>
+            <a href="/" class="btn btn-edit">Cancel</a>
+        </div>
+    </form>
+</div>
+</body>
+</html>
